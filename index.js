@@ -9000,3 +9000,32 @@ const issues = [
     "url": "https://api.github.com/repos/learn-co-curriculum/js-donut-lab/issues/2"
   }
 ];
+
+function replace(issue) {
+
+}
+
+var issuesWithUpdatedApiUrl = issues.map(function (issue){
+  if (issue["url"].includes("api.github.com")) {
+    var new_url = 'api-v2.github.com' + x.slice(23,x.length)
+    return Object.assign({}, issue, {
+      body: issue["body"],
+      created_at: issue["created_at"],
+      comments_count: issue["comments_count"],
+      id: issue["id"],
+      number: issue["number"],
+      state: issue["state"],
+      url: new_url
+    })
+  } else {
+    return Object.assign({}, issue, {
+      body: issue["body"],
+      created_at: issue["created_at"],
+      comments_count: issue["comments_count"],
+      id: issue["id"],
+      number: issue["number"],
+      state: issue["state"],
+      url: issue["url"]
+  })
+  }
+})
